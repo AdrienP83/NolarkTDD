@@ -20,3 +20,27 @@ function getAlcoolPur(nbVerres){
     const unitAlcool = 10;
     return nbVerres * unitAlcool;
 }
+/**
+ * Fonction qui retourne le coef de diffusion en fonction du sexe
+ * @param {string} sexe
+ * @return {float}
+ */
+function getCoefDiffusion(sexe){
+    const coefDiffuH = 0.7, coefDiffuF = 0.6;
+    if(sexe === 'femme'){
+        return coefDiffuF;
+    }
+    else{
+        return coefDiffuH;
+    }
+}
+/**
+ * Fonction qui retourn le taux d'alcoolémie
+ * @param {string} sexe
+ * @param {float} poids
+ * @param {int} nbVerres
+ * @return {float}
+ */
+function getAlcoolemie(sexe, poids, nbVerres) {
+ return getAlcoolPur(nbVerres) / poids * getCoefDiffusion(sexe);
+}
