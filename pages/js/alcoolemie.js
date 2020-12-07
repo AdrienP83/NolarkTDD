@@ -95,3 +95,13 @@ function getInt(id){
 function getString(id){
     return window.document.querySelector(id).value;
 }
+
+var poids = document.getElementById('poids');
+var verre = document.getElementById('verre');
+
+if (document.getElementById('homme').checked){
+    var sexe = document.getElementById('homme').value;
+} else{
+    sexe = document.getElementById('femme').value;
+}
+document.getElementById('info').inner = getAlcoolemie(sexe, poids, verre);
